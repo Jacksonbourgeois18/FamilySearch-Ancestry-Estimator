@@ -4,52 +4,17 @@ import requests
 
 
 payload1 = ""
-headers1 = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/109.0",
-    "Accept": "application/json, text/plain, */*",
-    "Accept-Language": "en",
-    "Accept-Encoding": "gzip, deflate, br",
-    "FS-User-Agent-Chain": "tree-person-r9-prod (/tree/person/details/GD1W-23R)",
-    "Authorization": "Bearer dbfcf0bc-5589-4be5-a566-873c36b280ce-prod",
-    "sentry-trace": "46cb992da394489f8ec718d234dbebcb-a1163c3a6e21f413-0",
-    "baggage": "sentry-environment=prod,sentry-release=tree-person-r9^%^402423^%^3A7d2795e5,sentry-public_key=e193e107f9c445f2878a47dee24af4e4,sentry-trace_id=46cb992da394489f8ec718d234dbebcb,sentry-sample_rate=0.001",
-    "Origin": "https://www.familysearch.org",
-    "DNT": "1",
-    "Connection": "keep-alive",
-    "Referer": "https://www.familysearch.org/tree/person/details/GD1W-23R",
-    "Cookie": "fs_anid=a705e79a-cb7d-42a6-aec1-511d0acc293a; fsgeo=108.200.201.127; fs_experiments=u^%^3Dborgir^%^2Ca^%^3Dshared-ui^%^2Cs^%^3D45e9e95de143330dfddf5895fac1b67f^%^2Cv^%^3D11111011110000000000000000011101000100111001001100110111110000010010111111111011111111101100000100101011111010000110011011111100000000^%^2Cb^%^3D93^%^26a^%^3Dhome^%^2Cs^%^3Dea7a67fce90033aa89d45aab9128f76b^%^2Cv^%^3D0000100000110000000001101001011001111110010110001000011110100111111110000100000100111101100000000000000^%^2Cb^%^3D22^%^26a^%^3Dregistration-react^%^2Cs^%^3D62ca60b61c3ef1f09044157240f648fe^%^2Cv^%^3D00^%^2Cb^%^3D74^%^26a^%^3Dtree-v8^%^2Cs^%^3D467fe04e8bfe33465e127a6a772b2e94^%^2Cv^%^3D101100101101100010001111^%^2Cb^%^3D80^%^26a^%^3Dtree-person-r9^%^2Cs^%^3Df04aee2c1e4c0e0d11eab15b88d2717b^%^2Cv^%^3D0^%^2Cb^%^3D94; fslanguage=en; visid_incap_2852034=SgJlGBVwQMe4D/dGwQ7PIjUR3GMAAAAAQUIPAAAAAABMYch0Y1KgqQWJ62XwSrkG; nlbi_2852034=KggVM9IfrTu09/GmFzy7qAAAAACZz3kM7foDqWEIBzv1/NIE; incap_ses_1531_2852034=p+KVbC5DUD+/bWmppDQ/FaAR3GMAAAAAjqyyeeDU83iQY/GXPFI9YA==; nlbi_2852034_2147483392=mmfhRiblD0Fahf4hFzy7qAAAAABkhn6kFa0MKf/5J4WwYpNX; fs_recent_languages=en; fs-revisit=1; fs-tf=1; _gcl_au=1.1.69089949.1675366819; ctsplit=83; AMCV_66C5485451E56AAE0A490D45^%^40AdobeOrg=-2121179033^%^7CMCMID^%^7C72581803612462378260349348087278518770^%^7CMCAID^%^7CNONE^%^7CMCOPTOUT-1675374037s^%^7CNONE^%^7CvVersion^%^7C5.3.0; reese84=3:fh9lEecYstxFcFKOEN+M9A==:pfvDTzMzXa/nOHK2P8PLulaee99uR1ieAEBGQUsCGJVnDF9+CGVLBNO/iZVuEyg5dGDsc6cxWCRccIck1YoUC48OpUpAxUi1zNJ8LVwixZ5XEaLxOqbEItzzXFiVky+1aIjo3es9b/LtIk4jZ/ihyjECChJIV4MEU8Fysa3fWcHCjQBj70WjDOQaqhWvhCiKIv+x5cPaziU0O5rG1OA+qEgdX1T396ClbXcl+5yEJYWCKJkLACSjvX+JPq79TCnAP1fgCYmarVzeRYtYNauBJMGAG6fkQCHMMFt0+5MVPMmHdDuji2CTG12m/9ourcqWIhfarL6Ru+ZLsfaKzbIb8eHfP7/7X1ewSEIBfqSTKjXjJKZ3Hf48eRLivpXqQ/+xZIKJbTWEZUIgCdGAbaKjzFTXYkA87JXLzvPzfOSDa3XrV7N4DOSEz4TkcozA4STc3AkeKX+UA3L9/0jHy4swRA==:bHCYAo2RUzWlyqlOgPhx4lOs1KuMNVeBaPqW9HZcNic=; s_ecid=MCMID^%^7C72581803612462378260349348087278518770; AMCVS_66C5485451E56AAE0A490D45^%^40AdobeOrg=1; s_ppvl=FamilySearch^%^253A^%^2520Home^%^253A^%^2520LiHP-arches^%^2C100^%^2C49^%^2C994^%^2C1920^%^2C994^%^2C1920^%^2C1080^%^2C1^%^2CL; s_ppv=FamilySearch^%^253A^%^2520Tree^%^253A^%^2520Pedigree^%^253A^%^2520Fan^%^2520Chart^%^2C100^%^2C100^%^2C994^%^2C1920^%^2C704^%^2C1920^%^2C1080^%^2C1^%^2CL; s_cc=true; visid_incap_2876314=h0sOf5EGTtOW3rDKjyBYoKQR3GMAAAAAQUIPAAAAAADdhHhKLlCwbdET8lry3dem; nlbi_2876314=b8S8D8IzlBDIF9VhZDbeQwAAAACyE7Cam0UYdm9v0g/5CHhL; incap_ses_1531_2876314=BJLMR53RmWbwB2qppDQ/FaQR3GMAAAAAZXwR6HjR/ucTMFEurk847w==; nlbi_2876314_2147483392=yFapOoyrs0gKtL2BZDbeQwAAAAAQaFVY1dW9ZEE5bM418EYL; dtCookie=v_4_srv_7_sn_BF26C9C4C3876D2DF6D7CC9954DDE121_perc_100000_ol_0_mul_1_app-3A52ca64c87d7a17f1_1_rcs-3Acss_0; fssessionid=dbfcf0bc-5589-4be5-a566-873c36b280ce-prod; JSESSIONID=641C5B90BB273E311AB9D7D551CC2B1E; notice_behavior=implied^|us",
-    "Sec-Fetch-Dest": "empty",
-    "Sec-Fetch-Mode": "cors",
-    "Sec-Fetch-Site": "same-origin",
-    "Content-Length": "0",
-    "TE": "trailers"
-}
+headers1 = {}
 
 
 querystring = {"includePhotos":"true"}
 payload2 = ""
-headers2 = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/109.0",
-    "Accept": "application/json, text/plain, */*",
-    "Accept-Language": "en",
-    "Accept-Encoding": "gzip, deflate, br",
-    "FS-User-Agent-Chain": "tree-person-r9-prod (/tree/person/details/GD1W-23R)",
-    "Authorization": "Bearer dbfcf0bc-5589-4be5-a566-873c36b280ce-prod",
-    "sentry-trace": "46cb992da394489f8ec718d234dbebcb-bf85b027e478598e-0",
-    "baggage": "sentry-environment=prod,sentry-release=tree-person-r9^%^402423^%^3A7d2795e5,sentry-public_key=e193e107f9c445f2878a47dee24af4e4,sentry-trace_id=46cb992da394489f8ec718d234dbebcb,sentry-sample_rate=0.001",
-    "DNT": "1",
-    "Connection": "keep-alive",
-    "Referer": "https://www.familysearch.org/tree/person/details/GD1W-23R",
-    "Cookie": "fs_anid=a705e79a-cb7d-42a6-aec1-511d0acc293a; fsgeo=108.200.201.127; fs_experiments=u^%^3Dborgir^%^2Ca^%^3Dshared-ui^%^2Cs^%^3D45e9e95de143330dfddf5895fac1b67f^%^2Cv^%^3D11111011110000000000000000011101000100111001001100110111110000010010111111111011111111101100000100101011111010000110011011111100000000^%^2Cb^%^3D93^%^26a^%^3Dhome^%^2Cs^%^3Dea7a67fce90033aa89d45aab9128f76b^%^2Cv^%^3D0000100000110000000001101001011001111110010110001000011110100111111110000100000100111101100000000000000^%^2Cb^%^3D22^%^26a^%^3Dregistration-react^%^2Cs^%^3D62ca60b61c3ef1f09044157240f648fe^%^2Cv^%^3D00^%^2Cb^%^3D74^%^26a^%^3Dtree-v8^%^2Cs^%^3D467fe04e8bfe33465e127a6a772b2e94^%^2Cv^%^3D101100101101100010001111^%^2Cb^%^3D80^%^26a^%^3Dtree-person-r9^%^2Cs^%^3Df04aee2c1e4c0e0d11eab15b88d2717b^%^2Cv^%^3D0^%^2Cb^%^3D94; fslanguage=en; visid_incap_2852034=SgJlGBVwQMe4D/dGwQ7PIjUR3GMAAAAAQUIPAAAAAABMYch0Y1KgqQWJ62XwSrkG; nlbi_2852034=KggVM9IfrTu09/GmFzy7qAAAAACZz3kM7foDqWEIBzv1/NIE; incap_ses_1531_2852034=p+KVbC5DUD+/bWmppDQ/FaAR3GMAAAAAjqyyeeDU83iQY/GXPFI9YA==; nlbi_2852034_2147483392=mmfhRiblD0Fahf4hFzy7qAAAAABkhn6kFa0MKf/5J4WwYpNX; fs_recent_languages=en; fs-revisit=1; fs-tf=1; _gcl_au=1.1.69089949.1675366819; ctsplit=83; AMCV_66C5485451E56AAE0A490D45^%^40AdobeOrg=-2121179033^%^7CMCMID^%^7C72581803612462378260349348087278518770^%^7CMCAID^%^7CNONE^%^7CMCOPTOUT-1675374037s^%^7CNONE^%^7CvVersion^%^7C5.3.0; reese84=3:fh9lEecYstxFcFKOEN+M9A==:pfvDTzMzXa/nOHK2P8PLulaee99uR1ieAEBGQUsCGJVnDF9+CGVLBNO/iZVuEyg5dGDsc6cxWCRccIck1YoUC48OpUpAxUi1zNJ8LVwixZ5XEaLxOqbEItzzXFiVky+1aIjo3es9b/LtIk4jZ/ihyjECChJIV4MEU8Fysa3fWcHCjQBj70WjDOQaqhWvhCiKIv+x5cPaziU0O5rG1OA+qEgdX1T396ClbXcl+5yEJYWCKJkLACSjvX+JPq79TCnAP1fgCYmarVzeRYtYNauBJMGAG6fkQCHMMFt0+5MVPMmHdDuji2CTG12m/9ourcqWIhfarL6Ru+ZLsfaKzbIb8eHfP7/7X1ewSEIBfqSTKjXjJKZ3Hf48eRLivpXqQ/+xZIKJbTWEZUIgCdGAbaKjzFTXYkA87JXLzvPzfOSDa3XrV7N4DOSEz4TkcozA4STc3AkeKX+UA3L9/0jHy4swRA==:bHCYAo2RUzWlyqlOgPhx4lOs1KuMNVeBaPqW9HZcNic=; s_ecid=MCMID^%^7C72581803612462378260349348087278518770; AMCVS_66C5485451E56AAE0A490D45^%^40AdobeOrg=1; s_ppvl=FamilySearch^%^253A^%^2520Home^%^253A^%^2520LiHP-arches^%^2C100^%^2C49^%^2C994^%^2C1920^%^2C994^%^2C1920^%^2C1080^%^2C1^%^2CL; s_ppv=FamilySearch^%^253A^%^2520Tree^%^253A^%^2520Pedigree^%^253A^%^2520Fan^%^2520Chart^%^2C100^%^2C100^%^2C994^%^2C1920^%^2C704^%^2C1920^%^2C1080^%^2C1^%^2CL; s_cc=true; visid_incap_2876314=h0sOf5EGTtOW3rDKjyBYoKQR3GMAAAAAQUIPAAAAAADdhHhKLlCwbdET8lry3dem; nlbi_2876314=b8S8D8IzlBDIF9VhZDbeQwAAAACyE7Cam0UYdm9v0g/5CHhL; incap_ses_1531_2876314=BJLMR53RmWbwB2qppDQ/FaQR3GMAAAAAZXwR6HjR/ucTMFEurk847w==; nlbi_2876314_2147483392=yFapOoyrs0gKtL2BZDbeQwAAAAAQaFVY1dW9ZEE5bM418EYL; dtCookie=v_4_srv_7_sn_BF26C9C4C3876D2DF6D7CC9954DDE121_perc_100000_ol_0_mul_1_app-3A52ca64c87d7a17f1_1_rcs-3Acss_0; fssessionid=dbfcf0bc-5589-4be5-a566-873c36b280ce-prod; JSESSIONID=641C5B90BB273E311AB9D7D551CC2B1E; notice_behavior=implied^|us",
-    "Sec-Fetch-Dest": "empty",
-    "Sec-Fetch-Mode": "cors",
-    "Sec-Fetch-Site": "same-origin",
-    "TE": "trailers"
-}
+headers2 = {}
 
+user_id = ""
 
 def scrape_ancestors(id, generation, tree):
-    url1 = f"https://www.familysearch.org/service/tree/tree-data/history-list/cis.user.MMSX-QJTL/person/{id}"
+    url1 = f"https://www.familysearch.org/service/tree/tree-data/history-list/cis.user.{user_id}/person/{id}"
     r1 = requests.request("PUT", url1, data=payload1, headers=headers1)
     data1 = r1.json()
     name = data1.get('data').get('name')
@@ -135,7 +100,7 @@ def get_terminals(tree):
 
 def scrape_origins(name_list):
     output_list = []
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/109.0'}
+    headers = {}
     for person in name_list:
         possible = []
         url = f'https://www.familysearch.org/en/surname?surname={person[0]}'
